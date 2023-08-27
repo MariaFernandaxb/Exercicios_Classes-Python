@@ -7,7 +7,6 @@
 # crescer.
 # Obs: Por padrão, a cada ano que nossa pessoa envelhece,
 # sendo a idade dela menor que 21 anos, ela deve crescer 0,5 cm.
-
 class Pessoa:
     def __init__ (self, nome, idade, peso, altura):
         self.nome = nome
