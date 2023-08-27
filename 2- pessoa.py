@@ -20,7 +20,7 @@ class Pessoa:
             self.idade += 1
             print(f"Parabéns ! Sua idade agora é: {self.idade}")
         else:
-            print(f"Sua idade é {self.idade}")
+            print(f"Sua idade é: {self.idade}")
     
     def calculo_imc(self):
         self.peso = float(input(f'Digite seu peso {self.nome}: '))
