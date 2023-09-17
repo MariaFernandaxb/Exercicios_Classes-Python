@@ -35,40 +35,40 @@ class BichinhoVirtual:
         #fome  = 0 , inicial 0, considere acima de 100 prejudicial
             if self.fome >= 65 and self.fome <= 99:
                 print(f'Alimentação do(a) {self.nome} Ok!')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.fome > 100:
                 print(f'Não exagere na alimentação do(a) {self.nome} !')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.fome <= 64 : 
                 print(f'Alimente o(a) {self.nome} !')  
-                criandotamagotchi.menu() 
+                self.menu() 
            
     def status_saude(self):
             #saude = 100 , considere a metade do valor e acima implicando a saude. 
             if self.saude  <= 59 : 
                 print(f'{self.nome} precisa de cuidados ! Fique atento ! ')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.saude >= 60 and self.saude <= 99:
                 print(f'Saúde do(a) {self.nome} estável')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.saude > 100:
                 print(f'Cuidados com exageros para não implicar a saúde do(a) {self.nome} ')
-                criandotamagotchi.menu()
+                self.menu()
  
     def status_idade(self):
         #idade inicial = 0 ,dia na terra equivale a um ano para o Tamagotchi e ele vive por aproximadamente 25 a 28 dias.  
             if self.idade == 0:
                 print(f'Vamos dar início aos cuidados do(a) {self.nome}')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.idade >= 1 and self.idade <= 27: 
                 print(f'Está indo bem com o(a) {self.nome}, fique atento aos cuidados !')
-                criandotamagotchi.menu()
+                self.menu()
             elif self.idade == 28: 
                 print(f'O(a) {self.nome} morreu. ') 
-                criandotamagotchi.menu()
+                self.menu()
             elif self.idade > 28: 
                 print( 'Tempo excedido ! Faça 1 minuto de silêncio e reinicie o jogo')
-                criandotamagotchi.menu()
+                self.menu()
       
     def status_humor(self):
         # combinação entre Fome e Saúde
@@ -76,28 +76,28 @@ class BichinhoVirtual:
             print(humor)
             if humor <= 29: 
                 print(f'Cuide do(a) {self.nome}, ele parece triste ! ')
-                criandotamagotchi.menu()
+                self.menu()
             elif humor >= 30 and humor <= 99:
                 print(f'O(a) {self.nome} está feliz ! Continue vigiando')
-                criandotamagotchi.menu()
+                self.menu()
             elif humor > 100:
                 print(f'Cuide do(a) {self.nome} ele parece estressado !')
-                criandotamagotchi.menu()
+                self.menu()
 
     def alterar_nome(self):
         self.nome = input('Digite o nome do seu Tamagotchi: ')
         print(f'Nome do tamagotchi alterar para : {self.nome}')
         alt = int(input('Deseja alterar algo mais ? :\n 1- Sim \n 2- Não '))
         if alt == 1: 
-            criandotamagotchi.novos_dados()
+            self.novos_dados()
         else:
-            criandotamagotchi.sair()        
+            self.sair()        
 
     def alterar_fome(self):
         while True: 
             try: 
                 self.fome =  int(input(f'Digite o status da fome do(a) {self.nome}: '))
-                criandotamagotchi.status_fome()
+                self.status_fome()
                 break
             except ValueError:   #mensadem de erro na tela. 
                 print(f'Valor inválido ! Digite um número inteiro para identificar o status.')
@@ -106,7 +106,7 @@ class BichinhoVirtual:
         while True: 
             try: 
                 self.saude = int(input(f'Digite o status de saúde do(a) {self.nome}: '))
-                criandotamagotchi.status_saude()
+                self.status_saude()
                 break
             except ValueError:   #mensadem de erro na tela. 
                 print(f'Valor inválido ! Digite um número inteiro para identificar o status.')
@@ -116,7 +116,7 @@ class BichinhoVirtual:
         while True: 
             try: 
                 self.idade =  int(input(f"Digite a idade do(a) {self.nome} :  "))
-                criandotamagotchi.status_idade()
+                self.status_idade()
                 break
             except ValueError:   #mensadem de erro na tela. 
                 print(f'Valor inválido ! Digite um número inteiro para identificar o status.')
@@ -125,15 +125,15 @@ class BichinhoVirtual:
     def novos_dados(self):
         opcao = int(input('Escolha a opção que deseja alterar \n 1- Novo nome:  \n 2- Status da Fome:  \n 3- Status da Idade: \n 4- Status da Saude:  \n 0- Sair \n'))
         if opcao == 1:
-            criandotamagotchi.alterar_nome()
+            self.alterar_nome()
         elif opcao == 2:
-            criandotamagotchi.alterar_fome()
+            self.alterar_fome()
         elif opcao == 3:
-            criandotamagotchi.alterar_idade()
+            self.alterar_idade()
         elif opcao == 4:
-            criandotamagotchi.alterar_saude()
+            self.alterar_saude()
         else:
-            criandotamagotchi.sair()
+            self.sair()
            
     def sair(self):
         print('Saindo em ... ')
@@ -146,22 +146,22 @@ class BichinhoVirtual:
     def menu(self): #Menu de todas as funções.
         opcao = int(input(f'\n Menu do(a) {self.nome} \n  Escolha as Opções: \n 1- Status da Fome \n 2- Status da Idade \n 3- Status da Saúde \n 4- Status do Humor  \n 5- Alterar dados  \n 0- Sair \n'))
         if opcao == 1:
-            criandotamagotchi.status_fome()
+            self.status_fome()
         elif opcao == 2:
-            criandotamagotchi.status_idade()
+            self.status_idade()
         elif opcao == 3:
-            criandotamagotchi.status_saude()
+            self.status_saude()
         elif opcao == 4:
-            criandotamagotchi.status_humor()
+            self.status_humor()
         elif opcao == 5:
-            criandotamagotchi.novos_dados()
+            self.novos_dados()
         else:
-            criandotamagotchi.sair()
+            self.sair()
 
 
 #chamando a Classe          
-criandotamagotchi = BichinhoVirtual()
+tamagotchi = BichinhoVirtual()
                                     
 #chamando a função menu
-criandotamagotchi.menu()
+tamagotchi.menu()
 
